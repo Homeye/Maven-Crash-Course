@@ -765,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516966191217</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="something">
+      <created>1516971042837</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1516971042837</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -857,7 +864,8 @@
     <MESSAGE value="added Spring xml configuration file" />
     <MESSAGE value="created some beans" />
     <MESSAGE value="deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted" />
+    <MESSAGE value="something" />
+    <option name="LAST_COMMIT_MESSAGE" value="something" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
