@@ -1,10 +1,18 @@
 package com.homeye.product.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.homeye.product.bo.ProductBO;
+import com.homeye.product.dto.Product;
 
 /**
  * Servlet implementation class DisplayProductDetailsServlet
@@ -12,20 +20,18 @@ import javax.servlet.http.HttpServletResponse;
 public class DisplayProductDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DisplayProductDetailsServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+		ProductBO productBO = (ProductBO) webApplicationContext.getBean("productbo");
+		Product product = productBO.findProduct(Integer.parseInt(request.getParameter("id")));
+		
+		PrintWriter out = response.getWriter();
+		out.print("Product Details");
+		out.print("Product ID: " + product.getId());
+		out.print("Product Name: " + product.getName());
+		out.print("Product Description: " + product.getDescription());
+		out.print("Product Price: " + product.getPrice());
+		
 	}
 
 }
